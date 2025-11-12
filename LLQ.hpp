@@ -11,18 +11,46 @@ private:
     LinkedList<T> list;
 public:
     // Constructor
-    LLQ();
+    LLQ() : list() {}
 
     // Insertion
-    void enqueue(const T& item) override;
+    void enqueue(const T& item) override{
+        list.addTail(item);
+    }
 
     // Deletion
-    T dequeue() override;
+    T dequeue() override{
+        if (getSize() == 0){
+            throw underflow_error("Empty");
+        }
+        T deq = list.getHead()->data;
+        list.removeHead();
+        return deq;
+    }
 
     // Access
-    T peek() const override;
+    T peek() const override{
+        if (getSize() == 0){
+            throw underflow_error("Empty");
+        }
+        return list.getHead()->data;
+    }
 
     // Getter
-    std::size_t getSize() const noexcept override;
+    std::size_t getSize() const noexcept override {
+        return list.getCount();
+    }
+
+    void printForward() const{
+        list.printForward();
+    }
+
+    void printReverse() const{
+        list.printReverse();
+    }
+
+    ~LLQ() noexcept {
+        list.Clear();
+    }
 
 };

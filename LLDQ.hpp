@@ -15,22 +15,60 @@ private:
 
 public:
     // Constructor
-    LLDQ();
+    LLDQ() : list() {}
 
     // Core Insertion Operations
-    void pushFront(const T& item) override;
-    void pushBack(const T& item) override;
+    void pushFront(const T& item) override{
+        list.addHead(item);
+    }
+    void pushBack(const T& item) override{
+        list.addTail(item);
+    }
 
     // Core Removal Operations
-    T popFront() override;
-    T popBack() override;
+    T popFront() override{
+        if (getSize() == 0){
+            throw underflow_error("Empty");
+        }
+        T pop = list.getHead()->data;
+        list.removeHead();
+        return pop;
+    }
+    T popBack() override{
+        if (getSize() == 0){
+            throw underflow_error("Empty");
+        }
+        T pop = list.getTail()->data;
+        list.removeTail();
+        return pop;
+    }
 
     // Element Accessors
-    const T& front() const override;
-    const T& back() const override;
+    const T& front() const override{
+        if (getSize() == 0){
+            throw underflow_error("Empty");
+        }
+        return list.getHead()->data;
+    }
+    const T& back() const override{
+        if (getSize() == 0){
+            throw underflow_error("Empty");
+        }
+        return list.getTail()->data;
+    }
+
+    void printForward() const{
+        list.printForward();
+    }
+
+    void printReverse() const{
+        list.printReverse();
+    }
 
     // Getter
-    std::size_t getSize() const noexcept override;
+    std::size_t getSize() const noexcept override{
+        return list.getCount();
+    }
 };
 
 
