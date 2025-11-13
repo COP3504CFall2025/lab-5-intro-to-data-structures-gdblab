@@ -35,9 +35,9 @@ public:
         
         other.front_ = 0;
         other.back_ = 0;
-        other.capacity_ = 0;
+        other.capacity_ = 1;
         other.size_ = 0;
-        other.data_ = nullptr;
+        other.data_ = new T[1];
   
     }
 
@@ -70,9 +70,9 @@ public:
         this->back_ = other.back_;
     
 
-        other.data_ = nullptr;
+        other.data_ = new T[1];
         other.size_ = 0;
-        other.capacity_ = 0;
+        other.capacity_ = 1;
         other.front_ = 0;
         other.back_ = 0;
     
