@@ -13,6 +13,18 @@ public:
     // Constructor
     LLS() : list() {}
 
+    LLS(const LLS&) = default;
+    LLS& operator=(const LLS&) = default;
+
+    LLS(LLS&& other) noexcept : list (move(other.list)) {}
+
+    LLS operator=(LLS&& other) noexcept {
+        if (this == &other) {return *this;}
+
+        list = move(other.list);
+        return *this;
+    }
+
     // Insertion
     void push(const T& item) override{
         list.addHead(item);

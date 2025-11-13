@@ -13,6 +13,18 @@ public:
     // Constructor
     LLQ() : list() {}
 
+    LLQ(const LLQ&) = default;
+    LLQ& operator=(const LLQ&) = default;
+
+    LLQ(LLQ&& other) noexcept : list (move(other.list)) {}
+
+    LLQ operator=(LLQ&& other) noexcept {
+        if (this == &other) {return *this;}
+
+        list = move(other.list);
+        return *this;
+    }
+
     // Insertion
     void enqueue(const T& item) override{
         list.addTail(item);
