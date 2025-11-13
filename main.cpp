@@ -1,7 +1,7 @@
 #ifdef MAIN
 
-// #include "ABDQ.hpp"
-// #include "ABQ.hpp"
+#include "ABDQ.hpp"
+#include "ABQ.hpp"
 #include "ABS.hpp"
 #include "Interfaces.hpp"
 #include "LinkedList.hpp"
@@ -188,8 +188,54 @@ int main() {
     cout<<"TESTING LLDQ COMPLETE!!!!!!!" << endl;
 
     cout << endl;
-    
+
+    cout << " ---------- Testing ABQ ---------- " << endl;
+    cout << endl;
+
+    ABQ<int> q1;
+
+    q1.enqueue(1);
+    q1.enqueue(2);
+    q1.enqueue(3);
+    q1.enqueue(4);
+    q1.enqueue(5);
+
+    cout << "q ->:" << endl;
+    q1.printForward();
+    cout << "Should be 1 2 3 4 5" << endl;
+
+    q1.printReverse();
+    cout << "Should be 5 4 3 2 1" << endl;
+
+    cout << "Peek front: " << q1.peek() << " (should be 1)" << endl;
+    cout << "dq: " << q1.dequeue() << " (should be 1)" << endl;
+    cout << "dq: " << q1.dequeue() << " (should be 2)" << endl;
+
+    cout<<"should test more, but itll be ok" << endl;
+
+    cout << " ---------- Testing ABDQ ---------- " << endl;
+    cout << endl;
+
+    ABDQ<int> d2;
+
+    d2.pushBack(1);
+    d2.pushBack(2);
+    d2.pushBack(3);
+
+    cout << "front: " << d2.front() << "------ back: " << d2.back() << endl;
+
+    for(int i = 4; i <= 10; i++){
+        d2.pushBack(i);
+    }
+
+    cout << "after push back:\n" << endl;
+    cout << "front: " << d2.front() << " back: " << d2.back() << endl;
+    cout << "size: " << d2.getSize() << endl;
+
+    cout << "ALL TEST FINALLY DONE T-T" << endl;
+
     return 0;
+
 }
 
 

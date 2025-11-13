@@ -29,7 +29,7 @@ public:
         T* nData = new T[rhs.capacity_];
 
         for(size_t i = 0; i < rhs.size_; i++){
-            nData[i] = rhs.data[i];
+            nData[i] = rhs.data_[i];
         }
 
         delete[] this->data_;
