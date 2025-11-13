@@ -70,7 +70,7 @@ public:
     }
 
     // Get the number of items in the ABS
-    [[nodiscard]] size_t getSize() const noexcept override{
+    [[nodiscard]] size_t getSize() noexcept override{
         return size_;
     }
 

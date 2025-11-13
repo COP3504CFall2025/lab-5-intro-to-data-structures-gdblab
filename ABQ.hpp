@@ -5,7 +5,7 @@
 #include "Interfaces.hpp"
 #include <iostream>
 using namespace std;
-
+//public static void main
 // Technically bad, but size_t isn't likely to conflict with any client code.
 using std::size_t;
 
@@ -75,7 +75,7 @@ public:
     }
 
     // Getters
-    [[nodiscard]] size_t getSize() const noexcept override{
+    [[nodiscard]] size_t getSize() noexcept override{
         return size_;
     }
     [[nodiscard]] size_t getMaxCapacity() const noexcept{
