@@ -44,9 +44,9 @@ public:
     ABS(ABS&& other) noexcept
         : capacity_(other.capacity_), size_(other.size_), data_(other.data_) {
         
-        other.capacity_ = 0;
+        other.capacity_ = 1;
         other.size_ = 0;
-        other.data_ = nullptr;
+        other.data_ = new T[1];
 
     }
 
@@ -58,9 +58,9 @@ public:
         this->size_ = rhs.size_;
         this->data_ = rhs.data_;
 
-        rhs.data_ = nullptr;
+        rhs.data_ = new T[1];
         rhs.size_ = 0;
-        rhs.capacity_ = 0;
+        rhs.capacity_ = 1;
     
         return *this;
     }
