@@ -130,7 +130,21 @@ public:
         if(size_ == 0) {throw underflow_error("Empty"); }
         T pop = data_[front_];
         size_--;
+
         front_ = (front_ + 1) % capacity_;
+        if (capacity_ > 1 && size_ <= capacity_ / 4){
+            size_t nCap = capacity_ / SCALE_FACTOR;
+            T* nData = new T[nCap];
+            for (size_t i = 0; i < size_; i++){
+                nData[i] = data_[(front_ + i) % capacity_];
+            }
+
+            delete[] data_;
+            data_ = nData;
+            capacity_ = nCap;
+            front_ = 0;
+            back_ = size_;
+        } 
         return pop;
     }
 
@@ -139,6 +153,19 @@ public:
         back_ = (back_ == 0) ? capacity_ - 1 : back_ - 1;
         T pop = data_[back_];
         size_--;
+        if (capacity_ > 1 && size_ <= capacity_ / 4){
+            size_t nCap = capacity_ / SCALE_FACTOR;
+            T* nData = new T[nCap];
+            for (size_t i = 0; i < size_; i++){
+                nData[i] = data_[(front_ + i) % capacity_];
+            }
+
+            delete[] data_;
+            data_ = nData;
+            capacity_ = nCap;
+            front_ = 0;
+            back_ = size_;
+        }
         return pop;
     }
 

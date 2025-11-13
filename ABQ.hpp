@@ -110,7 +110,7 @@ public:
 
     // Deletion
     T dequeue() override{
-        if(size_ == 0) {throw underflow_error("Empty"); }
+        if(size_ == 0) {throw underflow_error("Empty
         T rem = data_[0];
         for (size_t i = 0; i < size_-1; i++){
                 data_[i] = data_[i+1];

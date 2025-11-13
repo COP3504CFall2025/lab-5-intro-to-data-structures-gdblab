@@ -51,7 +51,7 @@ public:
     
 
     ~LLS() noexcept {
-        list.Clear();
+        list.clear();
     }
 
 };

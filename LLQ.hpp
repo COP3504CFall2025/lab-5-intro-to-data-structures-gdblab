@@ -50,7 +50,7 @@ public:
     }
 
     ~LLQ() noexcept {
-        list.Clear();
+        list.clear();
     }
 
 };

@@ -117,7 +117,7 @@ public:
 		count--;
 		return true;
 	}
-	void Clear(){
+	void clear(){
 		size_t iCount = count;
 		for (size_t i = 0; i < iCount; i++){
 			removeHead();
@@ -129,7 +129,7 @@ public:
 		if(this == &other){
 			return *this;
 		}
-		Clear();
+		clear();
 
 		this->head = other.head;
 		this->tail = other.tail;
@@ -146,7 +146,7 @@ public:
 			return *this; 
 		}
 		
-        Clear();
+        clear();
 
         Node<T>* initial = rhs.head;
         while (initial){
@@ -179,7 +179,7 @@ public:
 			other.count = 0;
 		}
 	~LinkedList(){
-		Clear();
+		clear();
 	}
 
 private:

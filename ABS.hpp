@@ -107,7 +107,7 @@ public:
     }
 
     T pop() override{
-        if(size_ == 0) {throw underflow_error("Empty"); }
+        if(size_ == 0) {throw underflow_error("Empty"); } 
         T pop = data_[size_ - 1]; 
         size_--;
         return pop;
