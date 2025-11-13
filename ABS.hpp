@@ -108,8 +108,8 @@ public:
 
     T pop() override{
         if(size_ == 0) {throw underflow_error("Empty"); }
-        if (capacity_ > 1 && size_ < capacity_ / 4){
-            size_t nCap = capacity_ * scale_factor_;
+        if (capacity_ > 1 && size_ <= capacity_ / 4){
+            size_t nCap = capacity_ / scale_factor_;
             T* nData = new T[nCap];
             for (size_t i = 0; i < capacity_; i++){
                 nData[i] = data_[i];
