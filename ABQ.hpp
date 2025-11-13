@@ -75,7 +75,7 @@ public:
     }
 
     // Getters
-    [[nodiscard]] size_t getSize() noexcept override{
+    [[nodiscard]] size_t getSize() const noexcept override{
         return size_;
     }
     [[nodiscard]] size_t getMaxCapacity() const noexcept{

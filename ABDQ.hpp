@@ -181,7 +181,7 @@ public:
     }
 
     // Getters
-    std::size_t getSize() noexcept override{
+    std::size_t getSize() const noexcept override{
         return size_;
     }
 
