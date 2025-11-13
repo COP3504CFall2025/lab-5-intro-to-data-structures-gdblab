@@ -79,9 +79,6 @@ public:
         return size_;
     }
     [[nodiscard]] size_t getMaxCapacity() const noexcept{
-        if (capacity_ == 4){
-            return 2;
-        }
         return capacity_;
     }
     [[nodiscard]] T* getData() const noexcept{
