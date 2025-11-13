@@ -58,9 +58,9 @@ public:
         this->size_ = rhs.size_;
         this->data_ = rhs.data_;
 
-        rhs.data_ = 0;
+        rhs.data_ = nullptr;
         rhs.size_ = 0;
-        rhs.capacity_ = nullptr;
+        rhs.capacity_ = 0;
     
         return *this;
     }
