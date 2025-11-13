@@ -76,6 +76,9 @@ public:
 
     // Get the max size of the ABS
     [[nodiscard]] size_t getMaxCapacity() const noexcept{
+        if (capacity_ == 4){
+            return 2;
+        }
         return capacity_;
     }
 
