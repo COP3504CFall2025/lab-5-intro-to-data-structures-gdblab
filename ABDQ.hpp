@@ -153,7 +153,7 @@ public:
         back_ = (back_ == 0) ? capacity_ - 1 : back_ - 1;
         T pop = data_[back_];
         size_--;
-        if (capacity_ > 1 && size_ <= capacity_ / 4){
+        if (capacity_ > 1 && size_ <= capacity_ / 2){
             size_t nCap = capacity_ / SCALE_FACTOR;
             T* nData = new T[nCap];
             for (size_t i = 0; i < size_; i++){
